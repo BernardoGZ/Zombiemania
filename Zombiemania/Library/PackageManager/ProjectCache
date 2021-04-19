@@ -5,15 +5,15 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637522297015751650
-    m_Hash: 1289630939
+      ticks: 637544504976186576
+    m_Hash: 4101599471
   m_LockFileStatus:
     m_FilePath: C:/Users/berna/Unity Projects/Zombiemania/Zombiemania/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637543660915767750
+      ticks: 637544509939843603
     m_Hash: 919429424
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}

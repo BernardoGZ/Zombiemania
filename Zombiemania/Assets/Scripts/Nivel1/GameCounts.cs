@@ -11,6 +11,9 @@ public class GameCounts : MonoBehaviour
     public int bulletCount;
     GameObject bulletText;
 
+    GameObject general;
+    GameOver gameOver;
+
 
 
     void Start()
@@ -19,6 +22,8 @@ public class GameCounts : MonoBehaviour
         bulletCount = 200;
         zombieText = GameObject.Find("ScoreC");
         bulletText = GameObject.Find("AmmoC");
+        general = GameObject.Find("General_0");
+        gameOver = GetComponent<GameOver>();
     }
 
     // Update is called once per frame
@@ -26,5 +31,9 @@ public class GameCounts : MonoBehaviour
     {
         zombieText.GetComponent<Text>().text = zombieCount.ToString();
         bulletText.GetComponent<Text>().text = bulletCount.ToString();
+
+        if(bulletCount == 0){
+            gameOver.gameOver = true;
+        }
     }
 }

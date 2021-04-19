@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
     GameObject general;
-    bool gameover = false;
+    public bool gameOver = false;
     
     // Start is called before the first frame update
     void Start()
@@ -16,15 +17,15 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (gameOver)
-        // {
-        //     Destroy(general);
-        //     float time = time.time;
-        //     if (Time.time - time < 0.5f)
-        //     {
-        //         SceneManager.LoadScene(scene);    
-        //     }
+        if (gameOver)
+        {
+            Destroy(general);
+            float time = Time.time;            
+            if (Time.time - time > 0.2f)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
             
-        // }
+        }
     }
 }
