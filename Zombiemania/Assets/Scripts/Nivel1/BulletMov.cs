@@ -7,9 +7,8 @@ public class BulletMov : MonoBehaviour
 {
 
     Rigidbody2D rb;
-    // Rigidbody2D gunrb;
-    // public GameObject gun;
-
+    GameCounts gameCount;
+    GameObject general;
     public float speed = 2.0f;
     
     // public AudioSource audio;
@@ -18,6 +17,9 @@ public class BulletMov : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        general = GameObject.Find("General_0");
+        gameCount = general.GetComponent<GameCounts> ();
+        
     }
 
     // Update is called once per frame
@@ -32,4 +34,11 @@ public class BulletMov : MonoBehaviour
        //AddForce permits the bullet to change constantly
        rb.AddForce(transform.right * 20f);
     }
+
+    void OnTriggerEnter2D (Collider2D other) {
+         if (other.tag == "Zombie") {
+             Destroy(other.gameObject);
+            gameCount.zombieCount += 1;
+         }
+     }
 }

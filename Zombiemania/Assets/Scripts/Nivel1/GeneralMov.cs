@@ -9,19 +9,26 @@ public class GeneralMov : MonoBehaviour
     Rigidbody2D rb;
     float horizontal;
     float vertical;
+
+    private float lastBullet = 0f;
     public bool hasGun = false;
     public Animator animator;
     public GameObject caminar;
     public GameObject gun;
     public GameObject bullet;
-    public float speed = 1.0f;
+    public GameObject mainCamera;
+    GameObject general;
+    private float speed = 5.0f;
+    BackgroundLoop backscript;
+    GameCounts gameCount;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        // gun = GameObject.Find("Weapon_0");
+        gameCount = GetComponent<GameCounts>();
     }
 
     // Update is called once per frame
@@ -54,21 +61,16 @@ public class GeneralMov : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space)) {
            
-            Instantiate (bullet, new Vector3 (position.x + 2.0f, position.y + 1.0f, 0), Quaternion.identity);
-            // bulletGo(GameObject.Find("Bullet(Clone)"));
-            // if (Time.time - lastSpawned > 0.5f) {
-            //     audio.Play (0);
-                // lastSpawned = Time.time;
-                // Instantiate (bullet, new Vector3 (transform.position.x + 1.5f, transform.position.y + 0.1f, 0), Quaternion.identity);
-            // }
+             if (Time.time - lastBullet > 0.2f) {
+                lastBullet = Time.time;
+                Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
+                gameCount.bulletCount -= 1;
+                
+             }
         }
 
          rb.MovePosition(position);
 
-        //if (Input.GetKeyDown(KeyCode.Space)) //Saltar
-        // {
-        //     position.y = position.y + 5 * Time.fixedDeltaTime * speed;
-        // }
         
         //Audio Instantiate at walking
         if (Input.GetKeyDown(KeyCode.D)){
@@ -91,12 +93,6 @@ public class GeneralMov : MonoBehaviour
          }
 
      }
-
-    //  void bulletGo(GameObject bullet){
-    //     // Vector3 pos = gun.GetComponent<Rigidbody2D>().position;
-    //     Vector3 pos = rb.position;
-    //     pos.x = pos.x + 1.5f* Time.fixedDeltaTime * speed;
-    // }
 }
 
    
