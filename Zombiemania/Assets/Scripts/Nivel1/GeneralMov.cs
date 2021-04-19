@@ -18,7 +18,7 @@ public class GeneralMov : MonoBehaviour
     public GameObject bullet;
     public GameObject mainCamera;
     GameObject general;
-    private float speed = 5.0f;
+    private float speed = 10.0f;
     BackgroundLoop backscript;
     GameCounts gameCount;
 
@@ -61,7 +61,7 @@ public class GeneralMov : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space)) {
            
-             if (Time.time - lastBullet > 0.2f) {
+             if (Time.time - lastBullet > 0.02f) {
                 lastBullet = Time.time;
                 Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
                 gameCount.bulletCount -= 1;
@@ -86,7 +86,8 @@ public class GeneralMov : MonoBehaviour
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
             hasGun = true;        
-            gun.GetComponent<FixedJoint2D>().enabled = true;         
+            gun.GetComponent<FixedJoint2D>().enabled = true;
+            gun.GetComponent<BoxCollider2D>().isTrigger = true;
          }
          if (other.tag == "Ammo") {
             Destroy(other.gameObject);       

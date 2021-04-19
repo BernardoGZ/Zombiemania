@@ -40,14 +40,14 @@
      <Compile Include="Assets\Free Pixel Army\Scripts\BoredButton.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\YawnButton.cs" />
      <Compile Include="Assets\Scripts\Nivel1\ZombieMov.cs" />
+     <Compile Include="Assets\Scripts\Nivel1\GameOver.cs" />
+     <Compile Include="Assets\Scripts\Nivel1\GameCounts.cs" />
      <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Nivel1\GeneralMov.cs" />
+     <Compile Include="Assets\Scripts\GameOver\GameOverScene.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BulletMov.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\WalkButton.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BackgroundLoop.cs" />
-     <Compile Include="Assets\Scripts\Nivel1\GameCounts.cs" />
-     <Compile Include="Assets\Scripts\Nivel1\GameOver.cs" />
-     <Compile Include="Assets\Scripts\GameOver\GameOverScene.cs" />
      <None Include="Assets\Free Pixel Army\Documentation\Documentation.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
