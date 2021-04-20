@@ -20,4 +20,11 @@ public class MainMenu : MonoBehaviour
     public void EscenaJuego(){
         SceneManager.LoadScene("Nivel1");
     }
+    public void Salir(){
+        Application.Quit();
+    }
+
+    // public void EscenaJuego(){
+    //     SceneManager.LoadScene("Instrucciones");
+    // }
 }

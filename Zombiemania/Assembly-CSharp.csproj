@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\GameOver\GameOverScene.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BulletMov.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\WalkButton.cs" />
+     <Compile Include="Assets\Scripts\Nivel1\ZombieAppear.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BackgroundLoop.cs" />
      <None Include="Assets\Free Pixel Army\Documentation\Documentation.txt" />
     <Reference Include="UnityEngine">

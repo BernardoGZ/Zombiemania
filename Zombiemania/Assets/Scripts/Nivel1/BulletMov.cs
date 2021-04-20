@@ -25,9 +25,7 @@ public class BulletMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        if (rb.position.x > 50.0f ){
-            Destroy(gameObject);
-        }
+    
     }
 
     private void FixedUpdate() {
@@ -40,5 +38,12 @@ public class BulletMov : MonoBehaviour
              Destroy(other.gameObject);
             gameCount.zombieCount += 1;
          }
+         if (other.tag == "Ammo") {
+             Destroy(gameObject);
+         }
+         if (other.tag == "MainCamera") {
+             Destroy(gameObject);
+         }
+
      }
 }
