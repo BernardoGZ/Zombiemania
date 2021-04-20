@@ -10,6 +10,8 @@ public class GeneralMov : MonoBehaviour
     float horizontal;
     float vertical;
 
+    
+
     private float lastBullet = 0f;
     private float lastStep = 0f;
     public bool hasGun = false;
@@ -22,6 +24,9 @@ public class GeneralMov : MonoBehaviour
     private float speed = 5.0f;
     BackgroundLoop backscript;
     GameCounts gameCount;
+    GameOver gameOver;
+
+    bool gameObool;
 
 
 
@@ -30,6 +35,8 @@ public class GeneralMov : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameCount = GetComponent<GameCounts>();
+        gameOver = GetComponent<GameOver>();
+        // gameObool = gameOver.gameOver;
     }
 
     // Update is called once per frame
@@ -40,6 +47,8 @@ public class GeneralMov : MonoBehaviour
 
         animator.SetFloat("Speed",Mathf.Abs(horizontal));
         animator.SetFloat("VSpeed",Mathf.Abs(vertical));
+
+        
 
     }
 
@@ -94,6 +103,8 @@ public class GeneralMov : MonoBehaviour
     }
 
      //Collide with gun gets the gun next to him at all time
+     //Collide with Ammo boxes gives 200 extra bullets
+
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
             hasGun = true;        
@@ -105,8 +116,15 @@ public class GeneralMov : MonoBehaviour
             gameCount.bulletCount += 200;       
          }
         if (other.tag == "MainCamera"){
-            Destroy(gameObject);
+            // Destroy(gameObject);
+            gameOver.gameOver = true;
+
         }
+        if (other.tag == "Zombie"){
+            // Destroy(gameObject);
+            gameOver.gameOver = true;
+        }
+
 
 
      }

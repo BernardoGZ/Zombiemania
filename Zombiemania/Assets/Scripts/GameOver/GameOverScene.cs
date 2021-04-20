@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScene : MonoBehaviour
 {
+     
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +19,7 @@ public class GameOverScene : MonoBehaviour
     }
 
     public void backtoMenu(){
-        SceneManager.LoadScene("Menu");  
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);          
     }
 
 }
