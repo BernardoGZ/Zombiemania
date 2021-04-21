@@ -46,9 +46,7 @@ public class GeneralMov : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         animator.SetFloat("Speed",Mathf.Abs(horizontal));
-        animator.SetFloat("VSpeed",Mathf.Abs(vertical));
-
-        
+        animator.SetFloat("VSpeed",Mathf.Abs(vertical));       
 
     }
 

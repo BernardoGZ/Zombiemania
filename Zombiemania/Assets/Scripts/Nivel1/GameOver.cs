@@ -7,7 +7,9 @@ public class GameOver : MonoBehaviour
 {
     GameObject general;
     public bool gameOver;
-
+    
+    public static int score;
+    //Score es statico para que se pueda compartir entre escenas
    
     
     // Start is called before the first frame update
@@ -22,12 +24,12 @@ public class GameOver : MonoBehaviour
     {
         if (gameOver)
         {
+            score = general.GetComponent<GameCounts>().zombieCount;
+
             Destroy(general);
-            // float time = Time.time;            
-            // if (Time.time - time > 0.2f)
-            // {
-                SceneManager.LoadScene("GameOver");
-            // }
+            
+            SceneManager.LoadScene("GameOver");
+            
             
         }
     }
