@@ -10,7 +10,10 @@ public class GeneralMov : MonoBehaviour
     float horizontal;
     float vertical;
 
+    
+
     private float lastBullet = 0f;
+    private float lastStep = 0f;
     public bool hasGun = false;
     public Animator animator;
     public GameObject caminar;
@@ -18,9 +21,12 @@ public class GeneralMov : MonoBehaviour
     public GameObject bullet;
     public GameObject mainCamera;
     GameObject general;
-    private float speed = 10.0f;
+    private float speed = 5.0f;
     BackgroundLoop backscript;
     GameCounts gameCount;
+    GameOver gameOver;
+    BackgroundLoop backLoop;
+    bool gameObool;
 
 
 
@@ -29,6 +35,8 @@ public class GeneralMov : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameCount = GetComponent<GameCounts>();
+        gameOver = GetComponent<GameOver>();
+        backLoop = mainCamera.GetComponent<BackgroundLoop>();
     }
 
     // Update is called once per frame
@@ -38,7 +46,7 @@ public class GeneralMov : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         animator.SetFloat("Speed",Mathf.Abs(horizontal));
-        animator.SetFloat("VSpeed",Mathf.Abs(vertical));
+        animator.SetFloat("VSpeed",Mathf.Abs(vertical));       
 
     }
 
@@ -52,46 +60,67 @@ public class GeneralMov : MonoBehaviour
         // Primary Movement
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {            
-            position.x = position.x + horizontal * Time.fixedDeltaTime * speed;               
+            position.x = position.x + horizontal * Time.fixedDeltaTime * speed;   
+            
+            //Audio Instantiate at walking
+            if (Time.time - lastStep > 0.2f) {
+                lastStep = Time.time;
+                var GO = GameObject.Find("caminar(Clone)");
+                Destroy(GO);
+                Instantiate (caminar);                
+             }            
         }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if ((Input.GetKey(KeyCode.W) && position.y < 2.2) || (Input.GetKey(KeyCode.S) && position.y > -4))
         {
             position.y = position.y + vertical * Time.fixedDeltaTime * speed;
+
+            //Audio Instantiate at walking
+            if (Time.time - lastStep > 0.2f) {
+                lastStep = Time.time;
+                var GO = GameObject.Find("caminar(Clone)");
+                Destroy(GO);
+                Instantiate (caminar);                
+             } 
         }
         
         if (Input.GetKey(KeyCode.Space)) {
            
-             if (Time.time - lastBullet > 0.02f) {
-                lastBullet = Time.time;
-                Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
-                gameCount.bulletCount -= 1;
-                
+             if(hasGun){
+                if (Time.time - lastBullet > 0.2f) {
+                    lastBullet = Time.time;
+                    Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
+                    gameCount.bulletCount -= 1;
+                    
+                }
              }
         }
-
          rb.MovePosition(position);
-
         
-        //Audio Instantiate at walking
-        if (Input.GetKeyDown(KeyCode.D)){
-            Instantiate(caminar);            
-        }
-        if (Input.GetKeyUp(KeyCode.D)){
-                var GO = GameObject.Find("caminar(Clone)");
-                Destroy(GO);
-        }
     }
 
      //Collide with gun gets the gun next to him at all time
+     //Collide with Ammo boxes gives 200 extra bullets
+
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
-            hasGun = true;        
+            hasGun = true;
+            backLoop.scrollSpeed = 3;
             gun.GetComponent<FixedJoint2D>().enabled = true;
             gun.GetComponent<BoxCollider2D>().isTrigger = true;
          }
          if (other.tag == "Ammo") {
-            Destroy(other.gameObject);       
+            Destroy(other.gameObject);
+            gameCount.bulletCount += 50;       
          }
+        if (other.tag == "MainCamera" ){
+            gameOver.gameOver = true;
+
+        }
+        if (other.tag == "Zombie"){
+            gameOver.gameOver = true;
+        }
+
+
 
      }
 }

@@ -47,7 +47,9 @@
      <Compile Include="Assets\Scripts\GameOver\GameOverScene.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BulletMov.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\WalkButton.cs" />
+     <Compile Include="Assets\Scripts\Nivel1\ZombieAppear.cs" />
      <Compile Include="Assets\Scripts\Nivel1\BackgroundLoop.cs" />
+     <Compile Include="Assets\Scripts\Nivel1\AmmoAppear.cs" />
      <None Include="Assets\Free Pixel Army\Documentation\Documentation.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
