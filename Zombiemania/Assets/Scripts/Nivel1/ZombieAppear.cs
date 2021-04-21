@@ -19,17 +19,17 @@ public class ZombieAppear : MonoBehaviour
         //  zombie1 = GameObject.Find("ZombieNorm");
          mainCam = GameObject.Find("MainCamera");
         // genScript = general.GetComponent<GunnerMovement> ();
-        StartCoroutine (ZombieSpawn ());
+        StartCoroutine (ZombieApp ());
 
     }
 
-    IEnumerator ZombieSpawn () {
+    IEnumerator ZombieApp () {
 
         // while (true && genScript.isAlive) {
         while (true) {
             // xPos = Random.Range (20, 24);
             xPos = mainCam.GetComponent<Transform>().position.x + 5;
-            yPos = Random.Range (-3f, 5f);
+            yPos = Random.Range (-4f, 2.2f);
 
             // z = Random.Range(0, 2);
             // ZAppear = z < 1 ? zombie1 : zombie2);

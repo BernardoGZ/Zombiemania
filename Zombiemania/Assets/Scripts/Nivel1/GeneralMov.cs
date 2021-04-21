@@ -25,7 +25,7 @@ public class GeneralMov : MonoBehaviour
     BackgroundLoop backscript;
     GameCounts gameCount;
     GameOver gameOver;
-
+    BackgroundLoop backLoop;
     bool gameObool;
 
 
@@ -36,7 +36,7 @@ public class GeneralMov : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gameCount = GetComponent<GameCounts>();
         gameOver = GetComponent<GameOver>();
-        // gameObool = gameOver.gameOver;
+        backLoop = mainCamera.GetComponent<BackgroundLoop>();
     }
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class GeneralMov : MonoBehaviour
                 Instantiate (caminar);                
              }            
         }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        if ((Input.GetKey(KeyCode.W) && position.y < 2.2) || (Input.GetKey(KeyCode.S) && position.y > -4))
         {
             position.y = position.y + vertical * Time.fixedDeltaTime * speed;
 
@@ -85,18 +85,16 @@ public class GeneralMov : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space)) {
            
-             if (Time.time - lastBullet > 0.2f) {
-                lastBullet = Time.time;
-                Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
-                gameCount.bulletCount -= 1;
-                
+             if(hasGun){
+                if (Time.time - lastBullet > 0.2f) {
+                    lastBullet = Time.time;
+                    Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
+                    gameCount.bulletCount -= 1;
+                    
+                }
              }
         }
-
          rb.MovePosition(position);
-
-        
-        
         
     }
 
@@ -105,21 +103,20 @@ public class GeneralMov : MonoBehaviour
 
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
-            hasGun = true;        
+            hasGun = true;
+            backLoop.scrollSpeed = 3;
             gun.GetComponent<FixedJoint2D>().enabled = true;
             gun.GetComponent<BoxCollider2D>().isTrigger = true;
          }
          if (other.tag == "Ammo") {
             Destroy(other.gameObject);
-            gameCount.bulletCount += 200;       
+            gameCount.bulletCount += 50;       
          }
-        if (other.tag == "MainCamera"){
-            // Destroy(gameObject);
+        if (other.tag == "MainCamera" ){
             gameOver.gameOver = true;
 
         }
         if (other.tag == "Zombie"){
-            // Destroy(gameObject);
             gameOver.gameOver = true;
         }
 
