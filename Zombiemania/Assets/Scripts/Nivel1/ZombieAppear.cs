@@ -29,7 +29,8 @@ public class ZombieAppear : MonoBehaviour
         while (true) {
             // xPos = Random.Range (20, 24);
             xPos = mainCam.GetComponent<Transform>().position.x + 5;
-            yPos = Random.Range (-4f, 2.2f);
+            // yPos = Random.Range (-4f, 2.2f);
+            yPos = 0;
 
             // z = Random.Range(0, 2);
             // ZAppear = z < 1 ? zombie1 : zombie2);

@@ -36,11 +36,15 @@ public class BulletMov : MonoBehaviour
     void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Zombie") {
              Destroy(other.gameObject);
-            gameCount.zombieCount += 1;
+             if(gameCount != null){
+                gameCount.zombieCount += 1;
+             }
+             else{
+                 Debug.Log("ErrorZ");
+             }
+            
          }
-         if (other.tag == "Ammo") {
-             Destroy(gameObject);
-         }
+
          if (other.tag == "MainCamera") {
              Destroy(gameObject);
          }

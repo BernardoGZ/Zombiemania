@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AmmoAppear
     - BackgroundLoop
     - BulletMov
     - GameCounts
@@ -14,7 +15,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -75,11 +75,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3930}
+      Script: {instanceID: 3932}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -113,6 +113,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
@@ -128,11 +132,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3076}
+      Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3350}
+      Script: {instanceID: 3352}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -197,15 +201,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2896}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3688}
+      Script: {instanceID: 2976}
     - Class: 114
-      Script: {instanceID: 3942}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4660}
+      Script: {instanceID: 3944}
     - Class: 114
-      Script: {instanceID: 4770}
+      Script: {instanceID: 4662}
+    - Class: 114
+      Script: {instanceID: 4772}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -479,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameCounts
+  - hash:
+      serializedVersion: 2
+      Hash: 7532a84ceeaf041e010c0a06ea0227a9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AmmoAppear
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
