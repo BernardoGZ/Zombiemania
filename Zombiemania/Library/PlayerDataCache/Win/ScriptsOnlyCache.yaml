@@ -9,6 +9,7 @@ ScriptsOnlyBuild:
     - GameOverScene
     - GeneralMov
     - MainMenu
+    - NextLevel
     - ZombieAppear
     - ZombieMov
     Unity.2D.Animation.Editor.dll:
@@ -212,6 +213,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4662}
     - Class: 114
       Script: {instanceID: 4772}
+    - Class: 114
+      Script: {instanceID: 4846}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -625,7 +628,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: dd22dfa932030d7482aa62d7704e51a5
+      Hash: ac7f63404ecc53cc51ed2d83de526c2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GeneralMov
@@ -803,6 +806,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BackgroundLoop
+  - hash:
+      serializedVersion: 2
+      Hash: 74c7b5b81af1d3acee0cc418732c4759
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NextLevel
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744

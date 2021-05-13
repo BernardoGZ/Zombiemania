@@ -22,7 +22,7 @@ public class ZombieMov : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if (Time.time - lastStep > 0.1f) {
+        if (Time.time - lastStep > 0.05f) {
                 lastStep = Time.time;
                 GetComponent<Rigidbody2D> ().transform.Translate (-0.1f, 0, 0);
         
