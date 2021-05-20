@@ -8,24 +8,43 @@ public class ZombieMov : MonoBehaviour
 {
     Rigidbody2D rb;
     float lastStep = 0f;
+    float speed;
+    GameObject general;
+    NextLevel nextLevel;
     
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        speed = -0.1f;
+        general = GameObject.Find("General_0");
+        nextLevel = general.GetComponent<NextLevel>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(nextLevel.nextLevel){
+            speed = 0;
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     private void FixedUpdate() {
         if (Time.time - lastStep > 0.05f) {
                 lastStep = Time.time;
-                GetComponent<Rigidbody2D> ().transform.Translate (-0.1f, 0, 0);
+                GetComponent<Rigidbody2D> ().transform.Translate (speed, 0, 0);
         
+        }
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity, LayerMask.GetMask("Player"));
+        if(hit.collider != null){
+            speed = -0.2f;
+            Debug.Log("Z collide G");
+        }
+        else{
+            Debug.Log("Z NOT collide G");
         }
     }
 }

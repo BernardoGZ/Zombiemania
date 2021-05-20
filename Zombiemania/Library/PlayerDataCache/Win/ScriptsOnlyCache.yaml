@@ -16,6 +16,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -66,21 +67,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1488}
+      Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2074}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2444}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2760}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 3932}
+      Script: {instanceID: 3930}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -121,23 +122,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1488}
+      Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2074}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 2228}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2444}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2760}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3350}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,33 +189,116 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 2160}
+      Script: {instanceID: 2074}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2158}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2320}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2444}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2590}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2760}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2894}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 3690}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 3944}
+      Script: {instanceID: 3076}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 3688}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 3942}
     - Class: 114
-      Script: {instanceID: 4846}
+      Script: {instanceID: 4660}
+    - Class: 114
+      Script: {instanceID: 4770}
+    - Class: 114
+      Script: {instanceID: 4844}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 255
+      Script: {instanceID: 0}
+    Assets/Scenes/Nivel2.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 2074}
+    - Class: 114
+      Script: {instanceID: 2158}
+    - Class: 114
+      Script: {instanceID: 2320}
+    - Class: 114
+      Script: {instanceID: 2444}
+    - Class: 114
+      Script: {instanceID: 2590}
+    - Class: 114
+      Script: {instanceID: 2760}
+    - Class: 114
+      Script: {instanceID: 2894}
+    - Class: 114
+      Script: {instanceID: 2950}
+    - Class: 114
+      Script: {instanceID: 2974}
+    - Class: 114
+      Script: {instanceID: 3688}
+    - Class: 114
+      Script: {instanceID: 3942}
+    - Class: 114
+      Script: {instanceID: 4660}
+    - Class: 114
+      Script: {instanceID: 4770}
+    - Class: 114
+      Script: {instanceID: 4844}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -808,7 +892,7 @@ ScriptsOnlyBuild:
     className: BackgroundLoop
   - hash:
       serializedVersion: 2
-      Hash: 74c7b5b81af1d3acee0cc418732c4759
+      Hash: 1f273add6f0948fc6aac14514551bacb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NextLevel
@@ -847,4 +931,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Nivel1.unity
   - Assets/Scenes/GameOver.unity
+  - Assets/Scenes/Nivel2.unity
   playerPath: C:/Users/berna/Unity Projects/ZombiemaniaGame/Zombiemania.exe

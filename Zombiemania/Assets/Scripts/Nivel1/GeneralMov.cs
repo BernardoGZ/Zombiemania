@@ -54,18 +54,21 @@ public class GeneralMov : MonoBehaviour
      {
          Controller();
      } 
+     else{
+         Debug.Log("Not controller");
+     }
     }
 
     void Controller() {
         Vector3 position = rb.position;
         
+        // if(nextLevel.nextLevel == false){
         // Primary Movement
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)))
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
         {            
-            if (nextLevel.nextLevel == false)
-            {
-                position.x = position.x + horizontal * Time.fixedDeltaTime * speed;  
-            }
+        
+            position.x = position.x + horizontal * Time.fixedDeltaTime * speed;  
+        
              
             
             //Audio Instantiate at walking
@@ -76,11 +79,11 @@ public class GeneralMov : MonoBehaviour
                 Instantiate (caminar);                
              }            
         }
-        if (((Input.GetKey(KeyCode.W) && position.y < 2.2) || (Input.GetKey(KeyCode.S) && position.y > -4)))
+        if (((Input.GetKey(KeyCode.UpArrow) && position.y < 2.2) || (Input.GetKey(KeyCode.DownArrow) && position.y > -4)))
         {
-            if(nextLevel.nextLevel == false){
-                position.y = position.y + vertical * Time.fixedDeltaTime * speed;
-            }
+        
+            position.y = position.y + vertical * Time.fixedDeltaTime * speed;
+        
             
 
             //Audio Instantiate at walking
@@ -104,6 +107,11 @@ public class GeneralMov : MonoBehaviour
              }
         }
          rb.MovePosition(position);
+        // }
+        // else{
+        //     // rb.position;
+        //     Debug.Log("Not move");
+        // }
         
     }
 
@@ -113,6 +121,7 @@ public class GeneralMov : MonoBehaviour
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
             hasGun = true;
+            backLoop.enabled = true;
             backLoop.scrollSpeed = 5;
             objZombie.GetComponent<ZombieAppear>().enabled = true;
             gun.GetComponent<FixedJoint2D>().enabled = true;

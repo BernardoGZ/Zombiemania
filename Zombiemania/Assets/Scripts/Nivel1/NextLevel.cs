@@ -41,13 +41,13 @@ public class NextLevel : MonoBehaviour
 
     IEnumerator Goodbye(){
         yield return new WaitForSeconds (5);
-        // bye = true;
         StartCoroutine(moving());
             
     }
     IEnumerator moving(){
         while(true){
             rb.transform.Translate (0.1f, 0, 0);
+            
             yield return new WaitForSeconds (1f);
         }
     }

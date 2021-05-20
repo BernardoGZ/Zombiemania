@@ -11,8 +11,11 @@ public class ZombieAppear : MonoBehaviour
     public float lastZombie = 0f;
     public float xPos, yPos;
     GameObject mainCam;
-    GameObject general;
+    GameObject general;    
+    public GameObject pause;
     NextLevel nextLevel;
+    PauseMenu pauseMenu;
+    public bool flag;
     // private GeneralMov genScript;
 
 
@@ -22,14 +25,13 @@ public class ZombieAppear : MonoBehaviour
          mainCam = GameObject.Find("MainCamera");
          general = GameObject.Find("General_0");
          nextLevel = general.GetComponent<NextLevel>();
+         pauseMenu = pause.GetComponent<PauseMenu>();
         // genScript = general.GetComponent<GunnerMovement> ();
-        bool flag = true;
-        StartCoroutine (ZombieApp (flag));
-        
-
+        flag = true;   
+        StartCoroutine (ZombieApp ());     
     }
 
-    IEnumerator ZombieApp (bool flag) {
+    IEnumerator ZombieApp () {
 
        
         while (flag) {
@@ -43,7 +45,7 @@ public class ZombieAppear : MonoBehaviour
             Instantiate (zombie1, new Vector3 (xPos, yPos, 0), Quaternion.identity);
 
             yield return new WaitForSeconds (1);
-            if (nextLevel.nextLevel == true){
+            if (nextLevel.nextLevel == true || pauseMenu.inPause == true){
                 flag = false;
                 Debug.Log("Stopped");
             }
@@ -54,9 +56,6 @@ public class ZombieAppear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (nextLevel.nextLevel == true){
-        //     StopCoroutine(ZombieApp());
-        //     Debug.Log("Stopped");
-        // }
+        
     }
 }
