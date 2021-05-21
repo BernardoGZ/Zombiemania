@@ -55,7 +55,9 @@ public class GeneralMov : MonoBehaviour
          Controller();
      } 
      else{
-         Debug.Log("Not controller");
+         Vector3 position = rb.position;
+         position.y = 0;
+         rb.MovePosition(position);
      }
     }
 
@@ -132,7 +134,6 @@ public class GeneralMov : MonoBehaviour
             else{
                 gameOver.gameOver = true;
             }
-
         }
         if (other.tag == "Zombie" && nextLevel.nextLevel == false){
             gameOver.gameOver = true;
