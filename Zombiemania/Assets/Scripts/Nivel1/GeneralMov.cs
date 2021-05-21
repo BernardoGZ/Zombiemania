@@ -62,7 +62,6 @@ public class GeneralMov : MonoBehaviour
     void Controller() {
         Vector3 position = rb.position;
         
-        // if(nextLevel.nextLevel == false){
         // Primary Movement
         if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
         {            
@@ -82,8 +81,7 @@ public class GeneralMov : MonoBehaviour
         if (((Input.GetKey(KeyCode.UpArrow) && position.y < 2.2) || (Input.GetKey(KeyCode.DownArrow) && position.y > -4)))
         {
         
-            position.y = position.y + vertical * Time.fixedDeltaTime * speed;
-        
+            position.y = position.y + vertical * Time.fixedDeltaTime * speed;       
             
 
             //Audio Instantiate at walking
@@ -107,11 +105,7 @@ public class GeneralMov : MonoBehaviour
              }
         }
          rb.MovePosition(position);
-        // }
-        // else{
-        //     // rb.position;
-        //     Debug.Log("Not move");
-        // }
+      
         
     }
 

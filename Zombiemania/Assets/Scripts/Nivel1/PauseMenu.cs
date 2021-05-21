@@ -1,20 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pause;
-    public GameObject mainCamera;
-    public GameObject General;
-    public GameObject objZombie;
-    GameObject Zombieclone;
-
-
-// BackgroundLoop backLoop;
-//     GeneralMov generalMov;
-//     BackgroundLoop backLoop;
-
     public bool inPause;
 
     // Start is called before the first frame update
@@ -26,31 +16,24 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Funcionaria si se pudiera tomar un conjunto de GO con el mismo nombre. Pero no es así
-        //Solucion: Variable en zombie Mov
-        // if (objZombie.GetComponent<ZombieAppear>().enabled == true)
-        // {
-        //     Zombieclone = GameObject.Find("ZombieNorm(Clone)");
-        // }
         
     }
     public void PauseInOut(){
         if(inPause){
             pause.SetActive(false);
             inPause = false;
-            mainCamera.GetComponent<BackgroundLoop>().enabled = true;
-            General.GetComponent<GeneralMov>().enabled = true;
-            // Zombieclone.GetComponent<ZombieMov>().enabled = true;
+            Time.timeScale = 1;
+            
         }
         else{
             pause.SetActive(true);
             inPause = true;
-            mainCamera.GetComponent<BackgroundLoop>().enabled = false;
-            General.GetComponent<GeneralMov>().enabled = false;
-            // Zombieclone.GetComponent<ZombieMov>().enabled = false;
-
+            Time.timeScale = 0;
         }
-       
+    }
 
+    public void GoBacktoMenu(){
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
 }
