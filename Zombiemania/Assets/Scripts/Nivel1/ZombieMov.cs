@@ -41,10 +41,16 @@ public class ZombieMov : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity, LayerMask.GetMask("Player"));
         if(hit.collider != null){
             speed = -0.2f;
-            Debug.Log("Z collide G");
+            // Debug.Log("Z collide G");
         }
         else{
-            Debug.Log("Z NOT collide G");
+            // Debug.Log("Z NOT collide G");
+        }
+    }
+    //No funciona debido a que los dos no tienen Trigger In
+    void OnTriggerEnter2D (Collider2D other) {
+        if (other.tag == "MainCamera"){
+            Destroy(gameObject);
         }
     }
 }

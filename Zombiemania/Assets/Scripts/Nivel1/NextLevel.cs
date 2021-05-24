@@ -14,6 +14,7 @@ public class NextLevel : MonoBehaviour
     BackgroundLoop backscript;
     GameCounts gameCount;
     public bool nextLevel;
+    // public int level;
     // bool bye;
 
     
@@ -24,6 +25,8 @@ public class NextLevel : MonoBehaviour
         gameCount = GetComponent<GameCounts>();
         backscript = mainCamera.GetComponent<BackgroundLoop>();
         nextLevel = false;
+        // level = level + 1;
+        // Debug.Log(">>>>>>>> NIVEL :     " + level);
         // bye = false;
     }
 
@@ -36,6 +39,7 @@ public class NextLevel : MonoBehaviour
             objZombie.GetComponent<ZombieAppear>().enabled = false;
             txtCompleted.SetActive(true);
             StartCoroutine(Goodbye());
+            
         }
     }
 

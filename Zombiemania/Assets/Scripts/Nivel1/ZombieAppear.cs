@@ -5,14 +5,16 @@ using UnityEngine;
 public class ZombieAppear : MonoBehaviour
 {
     public GameObject zombie1;
-    // public GameObject zombie2;
+    public GameObject zombie2;
     // private GameObject ZAppear;
-    // private int z;
+    private int z, k;
     public float lastZombie = 0f;
     public float xPos, yPos;
     GameObject mainCam;
     GameObject general;    
     public GameObject pause;
+    public GameObject actScene;
+    SceneManag sceneManag;
     NextLevel nextLevel;
     PauseMenu pauseMenu;
     public bool flag;
@@ -26,6 +28,7 @@ public class ZombieAppear : MonoBehaviour
          general = GameObject.Find("General_0");
          nextLevel = general.GetComponent<NextLevel>();
          pauseMenu = pause.GetComponent<PauseMenu>();
+        sceneManag = actScene.GetComponent<SceneManag>();
         // genScript = general.GetComponent<GunnerMovement> ();
         flag = true;   
         StartCoroutine (ZombieApp ());     
@@ -39,10 +42,18 @@ public class ZombieAppear : MonoBehaviour
             // xPos = Random.Range (20, 24);
             yPos = Random.Range (-4f, 2.2f);
             // yPos = 0;
-
-            // z = Random.Range(0, 2);
+            z = Random.Range(0, 5);
+            Debug.Log(z);
             // ZAppear = z < 1 ? zombie1 : zombie2);
-            Instantiate (zombie1, new Vector3 (xPos, yPos, 0), Quaternion.identity);
+            
+            if(z >= 3 && sceneManag.actSceneIndex == 2){
+                Instantiate (zombie2, new Vector3 (xPos, yPos, 0), Quaternion.identity);
+                Debug.Log("ATENCION ZOMBIE 2!!!!");
+            } 
+            else {
+                Instantiate (zombie1, new Vector3 (xPos, yPos, 0), Quaternion.identity);
+            }
+            
 
             yield return new WaitForSeconds (1);
             if (nextLevel.nextLevel == true || pauseMenu.inPause == true){

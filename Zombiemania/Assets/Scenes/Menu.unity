@@ -761,9 +761,9 @@ MonoBehaviour:
     de los zombies y dispara para acabar con ellos antes de que se acumulen en orda
     y acaben contigo.\nDurante la partida aparecer\xE1n cajas de munici\xF3n, recogelas
     para no quedarte sin balas y quedarte indefenso ante una muerte segura ante los
-    zombies.\r\n\nControles\n\n\rDesplazarte hacia la derecha: S.\r\nDesplazarte
-    hacia la izquierda: D.\r\nDesplazarte hacia arriba: W.\r\nDesplazarte hacia abajo:
-    S.\r\nDisparar: Espacio.\r\n"
+    zombies.\r\n\nControles\n\n\rDesplazarte hacia la derecha: Flecha derecha.\r\nDesplazarte
+    hacia la izquierda: Flecha izquierda.\r\nDesplazarte hacia arriba: Flecha arriba.\r\nDesplazarte
+    hacia abajo: Flecha abajo.\r\nDisparar: Espacio.\r\n"
 --- !u!222 &506974934
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1634,7 +1634,7 @@ Transform:
   m_GameObject: {fileID: 1804063733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0211, y: 0, z: 0}
-  m_LocalScale: {x: 1.3837245, y: 1.37048, z: 0}
+  m_LocalScale: {x: 1.85, y: 1.4, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1881,6 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructions: {fileID: 132160259}
+  general: {fileID: 5147605633127915608, guid: 819b77e0334b53544a3d79ecd4b1c220, type: 3}
 --- !u!4 &2146931799
 Transform:
   m_ObjectHideFlags: 0
