@@ -11,8 +11,14 @@ ScriptsOnlyBuild:
     - MainMenu
     - NextLevel
     - PauseMenu
+    - SceneManag
     - ZombieAppear
     - ZombieMov
+    AstarPathfindingProject.dll:
+    - AstarPath
+    - Pathfinding.AIDestinationSetter
+    - Pathfinding.AIPath
+    - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -68,21 +74,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1500}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2138}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2526}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 3932}
+      Script: {instanceID: 4122}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -123,23 +129,23 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1500}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2138}
     - Class: 114
-      Script: {instanceID: 2230}
+      Script: {instanceID: 2294}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2526}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2762}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3078}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3502}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -192,39 +198,47 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1500}
     - Class: 114
-      Script: {instanceID: 2048}
+      Script: {instanceID: 2106}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2138}
     - Class: 114
-      Script: {instanceID: 2160}
+      Script: {instanceID: 2222}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2394}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2526}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2684}
     - Class: 114
       Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 2952}
-    - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 3020}
     - Class: 114
       Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3690}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3944}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 3856}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 4134}
     - Class: 114
-      Script: {instanceID: 4846}
+      Script: {instanceID: 4440}
+    - Class: 114
+      Script: {instanceID: 4890}
+    - Class: 114
+      Script: {instanceID: 5002}
+    - Class: 114
+      Script: {instanceID: 5052}
+    - Class: 114
+      Script: {instanceID: 5074}
+    - Class: 114
+      Script: {instanceID: 5088}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -283,39 +297,49 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1500}
     - Class: 114
-      Script: {instanceID: 2048}
+      Script: {instanceID: 1840}
     - Class: 114
-      Script: {instanceID: 2076}
+      Script: {instanceID: 2106}
     - Class: 114
-      Script: {instanceID: 2160}
+      Script: {instanceID: 2138}
     - Class: 114
-      Script: {instanceID: 2322}
+      Script: {instanceID: 2222}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2394}
     - Class: 114
-      Script: {instanceID: 2592}
+      Script: {instanceID: 2526}
+    - Class: 114
+      Script: {instanceID: 2684}
     - Class: 114
       Script: {instanceID: 2762}
     - Class: 114
-      Script: {instanceID: 2896}
+      Script: {instanceID: 2870}
     - Class: 114
-      Script: {instanceID: 2952}
-    - Class: 114
-      Script: {instanceID: 2976}
+      Script: {instanceID: 3020}
     - Class: 114
       Script: {instanceID: 3078}
     - Class: 114
-      Script: {instanceID: 3690}
+      Script: {instanceID: 3102}
     - Class: 114
-      Script: {instanceID: 3944}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 3856}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 4134}
     - Class: 114
-      Script: {instanceID: 4846}
+      Script: {instanceID: 4440}
+    - Class: 114
+      Script: {instanceID: 4890}
+    - Class: 114
+      Script: {instanceID: 5002}
+    - Class: 114
+      Script: {instanceID: 5052}
+    - Class: 114
+      Script: {instanceID: 5074}
+    - Class: 114
+      Script: {instanceID: 5088}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -343,6 +367,12 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 1d6bc7fb33fcc56237df7c329c31fac2
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AILerp
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -353,6 +383,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: ff653aebffb231eb559930e8cf311d62
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: GraphUpdateScene
   - hash:
       serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
@@ -421,10 +457,22 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
+      Hash: 607ec805afd8d80d43f15ef06639440f
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: BlockManager
+  - hash:
+      serializedVersion: 2
       Hash: 344a8c2e106a0a4e098e91a52e0af063
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: bcb1cb4a9395b5b5db8b7a2dd4db50da
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: 
+    className: AstarPath
   - hash:
       serializedVersion: 2
       Hash: 61dcb54fa2492afeb3dd4cbbc60ecc40
@@ -437,6 +485,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BoredButton
+  - hash:
+      serializedVersion: 2
+      Hash: 0cceca996e1eb1401d74a841f34c4f83
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: SimpleSmoothModifier
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -455,6 +509,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 43acdecfcc62de1110964c47067c846f
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AlternativePath
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -511,10 +571,28 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
+      Hash: 6cd30e66b8b8737cd9e9c9402bc9f6e1
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: UnityReferenceHelper
+  - hash:
+      serializedVersion: 2
       Hash: a1aa98c78061c6f03a8c124cda576e67
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 427e4ae6223362877cde7ac01baa97c3
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: NodeLink3
+  - hash:
+      serializedVersion: 2
+      Hash: 0aab9b0491f3a88d6459f7add40022e4
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding.Legacy
+    className: LegacyAIPath
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -553,6 +631,18 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 3dd5460199f4f71ddeb16f492607b8fb
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AIDestinationSetter
+  - hash:
+      serializedVersion: 2
+      Hash: 8abe5c5970b933d28c84fe29c2232578
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: RelevantGraphSurface
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestRunner.Utils
@@ -563,6 +653,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: e7af7273c8177a5779551d022b323d84
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: RaycastModifier
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -589,10 +685,22 @@ ScriptsOnlyBuild:
     className: LimbSolver2D
   - hash:
       serializedVersion: 2
+      Hash: c181fc48305e752f3e25e609d7495634
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AstarDebugger
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 46cdbf48786f1faf06540c1959cd7b81
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: NodeLink
   - hash:
       serializedVersion: 2
       Hash: da2523e5c6138c5ef61bea104d14e085
@@ -739,7 +847,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: ac7f63404ecc53cc51ed2d83de526c2d
+      Hash: 746c3d894469450ad731ee107b566035
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GeneralMov
@@ -769,6 +877,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: b349b142d600a2478af04cea15b41a0b
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AnimationLink
+  - hash:
+      serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -785,6 +899,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 427e4ae6223362877cde7ac01baa97c3
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: NodeLink2
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -865,10 +985,22 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
+      Hash: aac6f99dc84c9a5a1171e2927e8f7014
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: AIPath
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
     className: SpriteSkinEntity
+  - hash:
+      serializedVersion: 2
+      Hash: e2c52df92f5a11103c324ae820575e40
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding.Examples
+    className: TurnBasedAI
   - hash:
       serializedVersion: 2
       Hash: 28cfb4bd305dd11c6326cc3ee7c14138
@@ -907,7 +1039,13 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 4c64f2e16db51134041b1017d1aeb29f
+      Hash: c0e31dd31c35455f422978da26bb908a
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: Patrol
+  - hash:
+      serializedVersion: 2
+      Hash: 6978945586fe2178cdf8949fd5aebc45
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ZombieAppear
@@ -917,6 +1055,24 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BackgroundLoop
+  - hash:
+      serializedVersion: 2
+      Hash: a5a60d0b9e6d53d72e12aef88e23ee68
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: FunnelModifier
+  - hash:
+      serializedVersion: 2
+      Hash: 95ec5ef41811e64837c657c402b6d78f
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: Seeker
+  - hash:
+      serializedVersion: 2
+      Hash: c2480940b9fe009553736c9709a2163d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneManag
   - hash:
       serializedVersion: 2
       Hash: 1f273add6f0948fc6aac14514551bacb
@@ -953,10 +1109,16 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: f08fcc1618ec9915d9530432bf8be751
+    assemblyName: AstarPathfindingProject.dll
+    namespaceName: Pathfinding
+    className: SingleNodeBlocker
   platform: 5
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/Nivel1.unity
-  - Assets/Scenes/GameOver.unity
   - Assets/Scenes/Nivel2.unity
+  - Assets/Scenes/GameOver.unity
   playerPath: C:/Users/berna/Unity Projects/ZombiemaniaGame/Zombiemania.exe

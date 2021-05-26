@@ -11,6 +11,7 @@ public class ZombieMov : MonoBehaviour
     float speed;
     GameObject general;
     NextLevel nextLevel;
+    GameObject mainCamera;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class ZombieMov : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         speed = -0.1f;
         general = GameObject.Find("General_0");
+        mainCamera = GameObject.Find("MainCamera");
         nextLevel = general.GetComponent<NextLevel>();
         
     }
@@ -45,6 +47,10 @@ public class ZombieMov : MonoBehaviour
         }
         else{
             // Debug.Log("Z NOT collide G");
+        }
+
+        if(rb.position.x <= mainCamera.GetComponent<Transform>().position.x - 10){
+            Destroy(gameObject);
         }
     }
     //No funciona debido a que los dos no tienen Trigger In

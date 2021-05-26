@@ -14,8 +14,7 @@ public class NextLevel : MonoBehaviour
     BackgroundLoop backscript;
     GameCounts gameCount;
     public bool nextLevel;
-    // public int level;
-    // bool bye;
+    
 
     
     // Start is called before the first frame update
@@ -25,9 +24,6 @@ public class NextLevel : MonoBehaviour
         gameCount = GetComponent<GameCounts>();
         backscript = mainCamera.GetComponent<BackgroundLoop>();
         nextLevel = false;
-        // level = level + 1;
-        // Debug.Log(">>>>>>>> NIVEL :     " + level);
-        // bye = false;
     }
 
     // Update is called once per frame
@@ -56,13 +52,7 @@ public class NextLevel : MonoBehaviour
         }
     }
     private void FixedUpdate() {
-        // if (bye){
-        //     if (Time.time - lastStep > 0.05f) {
-        //         lastStep = Time.time;
-        //         GetComponent<Rigidbody2D> ().transform.Translate (-0.1f, 0, 0);
-        
-        //     }
-        // }
+
     }
 
 }

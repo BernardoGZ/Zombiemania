@@ -25,7 +25,11 @@ public class GeneralMov : MonoBehaviour
     BackgroundLoop backLoop;
     NextLevel nextLevel;
     bool gameObool;
-
+    public ParticleSystem particleB;
+    public GameObject actScene;
+    public GameObject zombieTip;
+    Scene activeScene;
+    SceneManag sceneManag;
 
 
     // Start is called before the first frame update
@@ -36,6 +40,7 @@ public class GeneralMov : MonoBehaviour
         gameOver = GetComponent<GameOver>();
         backLoop = mainCamera.GetComponent<BackgroundLoop>();
         nextLevel = GetComponent<NextLevel>();
+        sceneManag = actScene.GetComponent<SceneManag>();
     }
 
     // Update is called once per frame
@@ -122,14 +127,22 @@ public class GeneralMov : MonoBehaviour
             objZombie.GetComponent<ZombieAppear>().enabled = true;
             gun.GetComponent<FixedJoint2D>().enabled = true;
             gun.GetComponent<BoxCollider2D>().isTrigger = true;
+            if(sceneManag.actSceneIndex == 2){
+                zombieTip = GameObject.Find("ZombieTip");
+                zombieTip.SetActive(false);
+            }
          }
          if (other.tag == "Ammo") {
             Destroy(other.gameObject);
+            Instantiate(particleB, other.transform.position, Quaternion.identity);
             gameCount.bulletCount += 50;       
          }
         if (other.tag == "MainCamera"){
-            if(nextLevel.nextLevel){
+            if(nextLevel.nextLevel && sceneManag.actSceneIndex == 1){
                  SceneManager.LoadScene("Nivel2");
+            }
+            else if(nextLevel.nextLevel && sceneManag.actSceneIndex == 2){
+                SceneManager.LoadScene("Menu");
             }
             else{
                 gameOver.gameOver = true;

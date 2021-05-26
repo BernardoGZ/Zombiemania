@@ -17,7 +17,7 @@ public class GameCounts : MonoBehaviour
 
     void Start()
     {
-        zombieCount = 0;
+        zombieCount = zombieCount;
         bulletCount = 50;
         zombieText = GameObject.Find("ScoreC");
         bulletText = GameObject.Find("AmmoC");
@@ -32,7 +32,6 @@ public class GameCounts : MonoBehaviour
                 
         bulletText.GetComponent<Text>().text = bulletCount.ToString();
                 
-
         if(bulletCount == 0){
             gameOver.gameOver = true;
         }
