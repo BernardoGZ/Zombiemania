@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GeneralMov : MonoBehaviour
 {
@@ -9,9 +9,6 @@ public class GeneralMov : MonoBehaviour
     Rigidbody2D rb;
     float horizontal;
     float vertical;
-
-    
-
     private float lastBullet = 0f;
     private float lastStep = 0f;
     public bool hasGun = false;
@@ -20,14 +17,19 @@ public class GeneralMov : MonoBehaviour
     public GameObject gun;
     public GameObject bullet;
     public GameObject mainCamera;
+    public GameObject objZombie;
     GameObject general;
     private float speed = 5.0f;
-    BackgroundLoop backscript;
     GameCounts gameCount;
     GameOver gameOver;
     BackgroundLoop backLoop;
+    NextLevel nextLevel;
     bool gameObool;
-
+    public ParticleSystem particleB;
+    public GameObject actScene;
+    public GameObject zombieTip;
+    Scene activeScene;
+    SceneManag sceneManag;
 
 
     // Start is called before the first frame update
@@ -37,6 +39,8 @@ public class GeneralMov : MonoBehaviour
         gameCount = GetComponent<GameCounts>();
         gameOver = GetComponent<GameOver>();
         backLoop = mainCamera.GetComponent<BackgroundLoop>();
+        nextLevel = GetComponent<NextLevel>();
+        sceneManag = actScene.GetComponent<SceneManag>();
     }
 
     // Update is called once per frame
@@ -46,21 +50,32 @@ public class GeneralMov : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
 
         animator.SetFloat("Speed",Mathf.Abs(horizontal));
-        animator.SetFloat("VSpeed",Mathf.Abs(vertical));       
+        animator.SetFloat("VSpeed",Mathf.Abs(vertical));      
 
     }
 
     private void FixedUpdate() {
-        Controller();
+     if (!nextLevel.nextLevel)
+     {
+         Controller();
+     } 
+     else{
+         Vector3 position = rb.position;
+         position.y = 0;
+         rb.MovePosition(position);
+     }
     }
 
     void Controller() {
         Vector3 position = rb.position;
         
         // Primary Movement
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
         {            
-            position.x = position.x + horizontal * Time.fixedDeltaTime * speed;   
+        
+            position.x = position.x + horizontal * Time.fixedDeltaTime * speed;  
+        
+             
             
             //Audio Instantiate at walking
             if (Time.time - lastStep > 0.2f) {
@@ -70,9 +85,11 @@ public class GeneralMov : MonoBehaviour
                 Instantiate (caminar);                
              }            
         }
-        if ((Input.GetKey(KeyCode.W) && position.y < 2.2) || (Input.GetKey(KeyCode.S) && position.y > -4))
+        if (((Input.GetKey(KeyCode.UpArrow) && position.y < 2.2) || (Input.GetKey(KeyCode.DownArrow) && position.y > -4)))
         {
-            position.y = position.y + vertical * Time.fixedDeltaTime * speed;
+        
+            position.y = position.y + vertical * Time.fixedDeltaTime * speed;       
+            
 
             //Audio Instantiate at walking
             if (Time.time - lastStep > 0.2f) {
@@ -83,7 +100,7 @@ public class GeneralMov : MonoBehaviour
              } 
         }
         
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKey(KeyCode.Space)  && nextLevel.nextLevel == false) {
            
              if(hasGun){
                 if (Time.time - lastBullet > 0.2f) {
@@ -95,6 +112,7 @@ public class GeneralMov : MonoBehaviour
              }
         }
          rb.MovePosition(position);
+      
         
     }
 
@@ -104,24 +122,35 @@ public class GeneralMov : MonoBehaviour
      void OnTriggerEnter2D (Collider2D other) {
          if (other.tag == "Weapon") {
             hasGun = true;
-            backLoop.scrollSpeed = 3;
+            backLoop.enabled = true;
+            backLoop.scrollSpeed = 5;
+            objZombie.GetComponent<ZombieAppear>().enabled = true;
             gun.GetComponent<FixedJoint2D>().enabled = true;
             gun.GetComponent<BoxCollider2D>().isTrigger = true;
+            if(sceneManag.actSceneIndex == 2){
+                zombieTip = GameObject.Find("ZombieTip");
+                zombieTip.SetActive(false);
+            }
          }
          if (other.tag == "Ammo") {
             Destroy(other.gameObject);
+            Instantiate(particleB, other.transform.position, Quaternion.identity);
             gameCount.bulletCount += 50;       
          }
-        if (other.tag == "MainCamera" ){
-            gameOver.gameOver = true;
-
+        if (other.tag == "MainCamera"){
+            if(nextLevel.nextLevel && sceneManag.actSceneIndex == 1){
+                 SceneManager.LoadScene("Nivel2");
+            }
+            else if(nextLevel.nextLevel && sceneManag.actSceneIndex == 2){
+                SceneManager.LoadScene("Menu");
+            }
+            else{
+                gameOver.gameOver = true;
+            }
         }
-        if (other.tag == "Zombie"){
+        if (other.tag == "Zombie" && nextLevel.nextLevel == false){
             gameOver.gameOver = true;
         }
-
-
-
      }
 }
 

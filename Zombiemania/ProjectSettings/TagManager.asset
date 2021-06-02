@@ -7,6 +7,8 @@ TagManager:
   - Weapon
   - Ammo
   - LeftB
+  - Zombie
+  - General
   layers:
   - Default
   - TransparentFX
@@ -14,13 +16,13 @@ TagManager:
   - 
   - Water
   - UI
+  - Bullet
+  - Ammo
+  - Player
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Collider
   - 
   - 
   - 

@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
    public GameObject instructions;
+//    public GameObject general;
+//    NextLevel nextLevel;
     
     // Start is called before the first frame update
     void Start()
     {
-        // instructions = GameObject.Find("Instructions");
+        
     }
 
     // Update is called once per frame

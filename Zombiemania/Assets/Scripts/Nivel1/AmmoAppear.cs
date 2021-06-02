@@ -50,7 +50,7 @@ public class AmmoAppear : MonoBehaviour
     {
         posCam = rbCam.position.x;
 
-        if(posCam%25 == 0)
+        if(posCam%25 == 0 && posCam > 0)
         {
             AmmoApp();
             // StartCoroutine (AmmoApp ());

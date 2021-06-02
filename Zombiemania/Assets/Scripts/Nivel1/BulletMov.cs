@@ -8,6 +8,7 @@ public class BulletMov : MonoBehaviour
 
     Rigidbody2D rb;
     GameCounts gameCount;
+    public ParticleSystem particleZ;
     GameObject general;
     public float speed = 2.0f;
     
@@ -34,13 +35,17 @@ public class BulletMov : MonoBehaviour
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-         if (other.tag == "Zombie") {
+         if (other.tag == "Zombie") {             
+             Instantiate(particleZ, other.transform.position, Quaternion.identity);
              Destroy(other.gameObject);
-            gameCount.zombieCount += 1;
+             if(gameCount != null){
+                gameCount.zombieCount += 1;
+             }
+             else{
+                 Debug.Log("ErrorZ");
+             }            
          }
-         if (other.tag == "Ammo") {
-             Destroy(gameObject);
-         }
+
          if (other.tag == "MainCamera") {
              Destroy(gameObject);
          }
