@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4206434369455185474}
   - component: {fileID: 3612594351942739771}
   - component: {fileID: 105596767320884497}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ZombieNorm
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -144,4 +144,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ec04b7287aabd4485ad2f1455efcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  general: {fileID: 0}

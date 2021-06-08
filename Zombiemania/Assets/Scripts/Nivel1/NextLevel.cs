@@ -14,6 +14,8 @@ public class NextLevel : MonoBehaviour
     BackgroundLoop backscript;
     GameCounts gameCount;
     public bool nextLevel;
+    public GameObject actScene;
+    SceneManag sceneManag;
     
 
     
@@ -24,15 +26,21 @@ public class NextLevel : MonoBehaviour
         gameCount = GetComponent<GameCounts>();
         backscript = mainCamera.GetComponent<BackgroundLoop>();
         nextLevel = false;
+        sceneManag = actScene.GetComponent<SceneManag>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameCount.zombieCount >= 10){
+        if(gameCount.zombieCount >= 15 || nextLevel == true){
             nextLevel = true;
             backscript.scrollSpeed = 0;
-            objZombie.GetComponent<ZombieAppear>().enabled = false;
+            if(sceneManag.actSceneIndex == 3){
+                objZombie.GetComponent<ZombieBossAppear>().enabled = false;
+            }
+            else{
+                objZombie.GetComponent<ZombieAppear>().enabled = false;
+            }
             txtCompleted.SetActive(true);
             StartCoroutine(Goodbye());
             

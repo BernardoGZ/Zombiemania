@@ -11,6 +11,10 @@ public class BulletMov : MonoBehaviour
     public ParticleSystem particleZ;
     GameObject general;
     public float speed = 2.0f;
+    public GameObject actScene;
+    SceneManag sceneManag;
+    static int bossShots;
+    NextLevel nextLevel;
     
     // public AudioSource audio;
 
@@ -20,6 +24,9 @@ public class BulletMov : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         general = GameObject.Find("General_0");
         gameCount = general.GetComponent<GameCounts> ();
+        nextLevel = general.GetComponent<NextLevel>();
+        sceneManag = actScene.GetComponent<SceneManag>();
+        // bossShots = 0;
         
     }
 
@@ -35,7 +42,7 @@ public class BulletMov : MonoBehaviour
     }
 
     void OnTriggerEnter2D (Collider2D other) {
-         if (other.tag == "Zombie") {             
+         if (other.tag == "Zombie") {
              Instantiate(particleZ, other.transform.position, Quaternion.identity);
              Destroy(other.gameObject);
              if(gameCount != null){
@@ -44,6 +51,16 @@ public class BulletMov : MonoBehaviour
              else{
                  Debug.Log("ErrorZ");
              }            
+         }
+         if (other.tag == "ZombieBoss") {
+             bossShots += 1;
+             if(bossShots >= 20){
+                Instantiate(particleZ, other.transform.position, Quaternion.identity);
+                Destroy(other.gameObject);
+                nextLevel.nextLevel = true;
+
+             }
+             
          }
 
          if (other.tag == "MainCamera") {

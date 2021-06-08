@@ -146,3 +146,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleZ: {fileID: 8548328537317432188, guid: fb1c89d9191109244a14cf0a913a6721, type: 3}
   speed: 2
+  actScene: {fileID: 7305778514058707783, guid: 67c138beaac5fe945852a19b8d94003f, type: 3}
