@@ -36,12 +36,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Nivel3\ZombieBossAppear.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\IdleButton.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\BoredButton.cs" />
      <Compile Include="Assets\Free Pixel Army\Scripts\YawnButton.cs" />
      <Compile Include="Assets\Scripts\Nivel1\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Nivel1\ZombieMov.cs" />
-     <Compile Include="Assets\Scripts\Nivel1\GameOver.cs" />
+     <Compile Include="Assets\Scripts\GameOver.cs" />
      <Compile Include="Assets\Scripts\GameCounts.cs" />
      <Compile Include="Assets\Scripts\Nivel1\AmmoAppear.cs" />
      <Compile Include="Assets\Scripts\Menu\MainMenu.cs" />
@@ -53,8 +54,8 @@
      <Compile Include="Assets\Scripts\Nivel1\BackgroundLoop.cs" />
      <Compile Include="Assets\Scripts\SceneManag.cs" />
      <Compile Include="Assets\Scripts\Nivel1\NextLevel.cs" />
-     <Compile Include="Assets\Scripts\Nivel3\ZombieBossAppear.cs" />
-     <Compile Include="Assets\Scripts\Nivel3\WinGame.cs" />
+     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+     <Compile Include="Assets\Scripts\GameCompleted.cs" />
      <None Include="Assets\Free Pixel Army\Documentation\Documentation.txt" />
     <Reference Include="UnityEngine">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

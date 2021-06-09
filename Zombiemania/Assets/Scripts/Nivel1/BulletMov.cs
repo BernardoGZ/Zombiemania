@@ -14,7 +14,7 @@ public class BulletMov : MonoBehaviour
     public GameObject actScene;
     SceneManag sceneManag;
     static int bossShots;
-    NextLevel nextLevel;
+    public NextLevel nextLevel;
     
     // public AudioSource audio;
 
@@ -54,11 +54,11 @@ public class BulletMov : MonoBehaviour
          }
          if (other.tag == "ZombieBoss") {
              bossShots += 1;
+             Destroy(gameObject);
              if(bossShots >= 20){
                 Instantiate(particleZ, other.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 nextLevel.nextLevel = true;
-
              }
              
          }

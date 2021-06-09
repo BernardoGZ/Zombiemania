@@ -32,8 +32,9 @@ public class NextLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameCount.zombieCount >= 15 || nextLevel == true){
+        if(gameCount.zombieCount >= (PlayerStats.Kills + 8) || nextLevel == true){
             nextLevel = true;
+            PlayerStats.Kills = gameCount.zombieCount;
             backscript.scrollSpeed = 0;
             if(sceneManag.actSceneIndex == 3){
                 objZombie.GetComponent<ZombieBossAppear>().enabled = false;
@@ -42,8 +43,7 @@ public class NextLevel : MonoBehaviour
                 objZombie.GetComponent<ZombieAppear>().enabled = false;
             }
             txtCompleted.SetActive(true);
-            StartCoroutine(Goodbye());
-            
+            StartCoroutine(Goodbye());  
         }
     }
 

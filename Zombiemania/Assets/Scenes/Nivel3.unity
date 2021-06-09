@@ -2811,6 +2811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
+  reason: 
 --- !u!114 &2116388651
 MonoBehaviour:
   m_ObjectHideFlags: 0

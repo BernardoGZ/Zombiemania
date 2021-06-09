@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void EscenaJuego(){
+        PlayerStats.Bullets = 16;
         SceneManager.LoadScene("Nivel1");
     }
     public void Salir(){
