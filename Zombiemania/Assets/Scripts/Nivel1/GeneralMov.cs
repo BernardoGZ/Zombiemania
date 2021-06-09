@@ -28,8 +28,9 @@ public class GeneralMov : MonoBehaviour
     public ParticleSystem particleB;
     public GameObject actScene;
     public GameObject zombieTip;
-    Scene activeScene;
     SceneManag sceneManag;
+    public GameObject Zombietip;
+
 
 
     // Start is called before the first frame update
@@ -106,7 +107,7 @@ public class GeneralMov : MonoBehaviour
                 if (Time.time - lastBullet > 0.2f) {
                     lastBullet = Time.time;
                     Instantiate (bullet, new Vector3 (position.x + 1.2f, position.y + 0.8f, 0), Quaternion.identity);
-                    gameCount.bulletCount -= 1;
+                    PlayerStats.Bullets -= 1;
                     
                 }
              }
@@ -123,8 +124,16 @@ public class GeneralMov : MonoBehaviour
          if (other.tag == "Weapon") {
             hasGun = true;
             backLoop.enabled = true;
-            backLoop.scrollSpeed = 5;
-            objZombie.GetComponent<ZombieAppear>().enabled = true;
+            if(sceneManag.actSceneIndex == 3){
+                objZombie.GetComponent<ZombieBossAppear>().enabled = true;
+                Zombietip.SetActive(false);
+                backLoop.scrollSpeed = 1;
+            }
+            else{
+                objZombie.GetComponent<ZombieAppear>().enabled = true;
+                backLoop.scrollSpeed = 5;
+            }
+            
             gun.GetComponent<FixedJoint2D>().enabled = true;
             gun.GetComponent<BoxCollider2D>().isTrigger = true;
             if(sceneManag.actSceneIndex == 2){
@@ -135,20 +144,27 @@ public class GeneralMov : MonoBehaviour
          if (other.tag == "Ammo") {
             Destroy(other.gameObject);
             Instantiate(particleB, other.transform.position, Quaternion.identity);
-            gameCount.bulletCount += 50;       
+            PlayerStats.Bullets += 30;       
          }
         if (other.tag == "MainCamera"){
             if(nextLevel.nextLevel && sceneManag.actSceneIndex == 1){
                  SceneManager.LoadScene("Nivel2");
             }
             else if(nextLevel.nextLevel && sceneManag.actSceneIndex == 2){
-                SceneManager.LoadScene("Menu");
+                SceneManager.LoadScene("Nivel3");
+            }
+            else if(nextLevel.nextLevel && sceneManag.actSceneIndex == 3){
+                SceneManager.LoadScene("CompletedGame");
             }
             else{
+                PlayerStats.Died = "Oh no! Te quedaste muy atrás :(";
+                PlayerStats.Kills = gameCount.zombieCount;
                 gameOver.gameOver = true;
             }
         }
-        if (other.tag == "Zombie" && nextLevel.nextLevel == false){
+        if ((other.tag == "Zombie" || other.tag == "ZombieBoss") && nextLevel.nextLevel == false){
+            PlayerStats.Died = "Un zombie te alcanzó :(" ;
+            PlayerStats.Kills = gameCount.zombieCount;
             gameOver.gameOver = true;
         }
      }

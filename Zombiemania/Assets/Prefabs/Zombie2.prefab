@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2693117953429520949}
   - component: {fileID: 2693117953429520948}
   - component: {fileID: 2693117953429520951}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie2
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.2
+  radius: 0.4
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -189,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.27, y: 0.32}
+  m_Size: {x: 0.5, y: 0.9}
   m_EdgeRadius: 0
 --- !u!50 &2693117953429520951
 Rigidbody2D:
